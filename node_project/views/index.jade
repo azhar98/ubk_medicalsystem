@@ -1,0 +1,494 @@
+doctype html
+html
+  include includes/header.jade
+ body.vertical-layout.vertical-overlay-menu.2-columns.menu-expanded.fixed-navbar(data-open='click', data-menu='vertical-overlay-menu', data-col='2-columns')
+    include includes/navbar.jade
+    include includes/slidebar.jade
+    .app-content.content
+      .content-wrapper
+        .content-header.row
+        .content-body
+          // project stats
+          .row
+            .col-12
+              .card
+                .card-content
+                  .row
+                    .col-lg-4.col-md-12.col-sm-12.border-right-blue-grey.border-right-lighten-5
+                      .p-1.text-center
+                        div
+                          h3.font-large-1.grey.darken-1.text-bold-400 $84,962
+                          span.font-small-3.grey.darken-1 
+                        .card-content.overflow-hidden
+                          #morris-comments.height-75
+                          ul.list-inline.clearfix.mb-0
+                            li.border-right-grey.border-right-lighten-2.pr-2
+                              h3.success.text-bold-400 $8,200
+                              span.font-small-3.grey.darken-1
+                                i.ft-chevron-up.success
+                                |  Today
+                            li.pl-2
+                              h3.success.text-bold-400 $5,400
+                              span.font-small-3.grey.darken-1
+                                i.ft-chevron-down.success
+                                |  Yesterday
+                    .col-lg-4.col-md-12.col-sm-12.border-right-blue-grey.border-right-lighten-5
+                      .p-1.text-center
+                        div
+                          h3.font-large-1.grey.darken-1.text-bold-400 1,879
+                          span.font-small-3.grey.darken-1 Total Sales
+                        .card-content.overflow-hidden
+                          #morris-likes.height-75
+                          ul.list-inline.clearfix.mb-0
+                            li.border-right-grey.border-right-lighten-2.pr-2
+                              h3.primary.text-bold-400 4789
+                              span.font-small-3.grey.darken-1
+                                i.ft-chevron-up.primary
+                                |  Today
+                            li.pl-2
+                              h3.primary.text-bold-400 389
+                              span.font-small-3.grey.darken-1
+                                i.ft-chevron-down.primary
+                                |  Yesterday
+                    .col-lg-4.col-md-12.col-sm-12
+                      .p-1.text-center
+                        div
+                          h3.font-large-1.grey.darken-1.text-bold-400 894
+                          span.font-small-3.grey.darken-1 Support Tickets
+                        .card-content.overflow-hidden
+                          #morris-views.height-75
+                          ul.list-inline.clearfix.mb-0
+                            li.border-right-grey.border-right-lighten-2.pr-2
+                              h3.danger.text-bold-400 81
+                              span.font-small-3.grey.darken-1
+                                i.ft-chevron-up.danger
+                                |  Critical
+                            li.pl-2
+                              h3.danger.text-bold-400 498
+                              span.font-small-3.grey.darken-1
+                                i.ft-chevron-down.danger
+                                |  Low
+
+          .row.match-height
+            .col-xl-8.col-lg-12
+              .card
+                .card-content
+                  ul.list-inline.text-center.pt-2.m-0
+                    li.mr-1
+                      h6
+                        i.ft-circle.warning
+                        span.grey.darken-1 Remaining
+                    li.mr-1
+                      h6
+                        i.ft-circle.success
+                        span.grey.darken-1 Completed
+                  .chartjs.height-250
+                    canvas#line-stacked-area(height='250')
+                .card-footer
+                  .row
+                    .col-3.text-center
+                      span.text-muted Total Projects
+                      h2.block.font-weight-normal 18
+                      .progress.mt-2(style='height: 7px;')
+                        .progress-bar.bg-success(role='progressbar', style='width: 70%', aria-valuenow='70', aria-valuemin='0', aria-valuemax='100')
+                    .col-3.text-center
+                      span.text-muted Total Task
+                      h2.block.font-weight-normal 125
+                      .progress.mt-2(style='height: 7px;')
+                        .progress-bar.bg-warning(role='progressbar', style='width: 40%', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100')
+                    .col-3.text-center
+                      span.text-muted Completed Task
+                      h2.block.font-weight-normal 242
+                      .progress.mt-2(style='height: 7px;')
+                        .progress-bar.bg-success(role='progressbar', style='width: 60%', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100')
+                    .col-3.text-center
+                      span.text-muted Total Revenue
+                      h2.block.font-weight-normal $11,582
+                      .progress.mt-2(style='height: 7px;')
+                        .progress-bar.bg-warning(role='progressbar', style='width: 90%', aria-valuenow='90', aria-valuemin='0', aria-valuemax='100')
+            .col-xl-4.col-lg-12
+              .card.card-inverse.bg-primary
+                .card-content
+                  .card-body.sales-growth-chart
+                    .chart-title.mb-1.text-center
+                      span.white Total monthly Sales.
+                    #monthly-sales.height-250
+                .card-footer.text-center
+                  .chart-stats.mt-1.white
+                    a.btn.bg-primary.bg-darken-3.mr-1.white(href='#')
+                      | Statistics 
+                      i.ft-bar-chart
+                    |  for the last year.
+          // / project charts
+          // project health, featured & chart
+          .row
+            .col-xl-4.col-lg-6.col-md-12
+              .card
+                .card-content
+                  .card-body.text-center
+                    .card-header.mb-2
+                      span.success.darken-1 Total Budget
+                      h3.font-large-2.grey.darken-1.text-bold-200 $24,879
+                    .card-content
+                      input.knob.hide-value.responsive.angle-offset(type='text', value='75', data-angleoffset='0', data-thickness='.15', data-linecap='round', data-width='150', data-height='150', data-inputcolor='#e1e1e1', data-readonly='true', data-fgcolor='#37BC9B', data-knob-icon='ft-trending-up')
+                      ul.list-inline.clearfix.mt-2.mb-0
+                        li.border-right-grey.border-right-lighten-2.pr-2
+                          h2.grey.darken-1.text-bold-400 75%
+                          span.success Completed
+                        li.pl-2
+                          h2.grey.darken-1.text-bold-400 25%
+                          span.danger Remaining
+            .col-xl-4.col-lg-6.col-md-12
+              .card.white.bg-warning.text-center
+                .card-content
+                  .card-body
+                    img.mb-1(src='app-assets/images/elements/04.png', alt='element 05', height='170')
+                    h4.card-title.white Storage Device
+                    p.card-text.white 945 items
+              .card
+                .card-content
+                  .media.align-items-stretch
+                    .p-2.bg-warning.text-white.media-body.text-left.rounded-left
+                      h5.text-white New Orders
+                      h5.text-white.text-bold-400.mb-0 4,65,879
+                    .p-2.text-center.bg-warning.bg-darken-2.rounded-right
+                      i.icon-camera.font-large-2.text-white
+          
+            .col-xl-4.col-lg-12.col-md-12
+              .card.card-inverse.bg-info
+                .card-content
+                  .position-relative
+                    .chart-title.position-absolute.mt-2.ml-2.white
+                      h1.font-large-2.text-bold-200.white 84%
+                      span Employees Satisfied
+                    canvas#emp-satisfaction.height-400.block
+                    .chart-stats.position-absolute.position-bottom-0.position-right-0.mb-3.mr-3.white
+                      a.btn.bg-info.bg-darken-3.mr-1.white(href='#')
+                        | Statistics 
+                        i.ft-bar-chart
+                      |  for the last year.
+          .row
+            .col-xl-8.col-lg-12
+              .card
+                .card-header
+                  h4.card-title Ongoing Projects
+                  a.heading-elements-toggle
+                    i.ft-more-horizontal.font-medium-3
+                  .heading-elements
+                    ul.list-inline.mb-0
+                      li
+                        a(data-action='reload')
+                          i.ft-rotate-cw
+                      li
+                        a(data-action='expand')
+                          i.ft-maximize
+                .card-content
+                  .card-body
+                    p.m-0
+                      | Total ongoing projects 6
+                      span.float-right
+                        a(href='project-summary.html', target='_blank')
+                          | Project Summary 
+                          i.ft-arrow-right
+                  .table-responsive
+                    table.table.table-hover.mb-0
+                      thead
+                        tr
+                          th Project
+                          th Owner
+                          th Priority
+                          th Progress
+                      tbody
+                        tr
+                          td.text-truncate ReactJS App
+                          td.text-truncate
+                            span.avatar.avatar-xs
+                              img(src='app-assets/images/portrait/small/avatar-s-4.png', alt='avatar')
+                            span Sarah W.
+                          td.text-truncate
+                            span.tag.tag-success Low
+                          td.valign-middle
+                            .progress.m-0(style='height: 7px;')
+                              .progress-bar.bg-success(role='progressbar', style='width: 88%', aria-valuenow='88', aria-valuemin='0', aria-valuemax='100')
+                        tr
+                          td.text-truncate Fitness App
+                          td.text-truncate
+                            span.avatar.avatar-xs
+                              img(src='app-assets/images/portrait/small/avatar-s-5.png', alt='avatar')
+                            span Edward C.
+                          td.text-truncate
+                            span.tag.tag-warning Medium
+                          td.valign-middle
+                            .progress.m-0(style='height: 7px;')
+                              .progress-bar.bg-warning(role='progressbar', style='width: 55%', aria-valuenow='55', aria-valuemin='0', aria-valuemax='100')
+                        tr
+                          td.text-truncate SOU plugin
+                          td.text-truncate
+                            span.avatar.avatar-xs
+                              img(src='app-assets/images/portrait/small/avatar-s-6.png', alt='avatar')
+                            span Carol E.
+                          td.text-truncate
+                            span.tag.tag-danger Critical
+                          td.valign-middle
+                            .progress.m-0(style='height: 7px;')
+                              .progress-bar.bg-danger(role='progressbar', style='width: 55%', aria-valuenow='55', aria-valuemin='0', aria-valuemax='100')
+                        tr
+                          td.text-truncate Android App
+                          td.text-truncate
+                            span.avatar.avatar-xs
+                              img(src='app-assets/images/portrait/small/avatar-s-7.png', alt='avatar')
+                            span Gregory L.
+                          td.text-truncate
+                            span.tag.tag-success Low
+                          td.valign-middle
+                            .progress.m-0(style='height: 7px;')
+                              .progress-bar.bg-success(role='progressbar', style='width: 95%', aria-valuenow='95', aria-valuemin='0', aria-valuemax='100')
+                        tr
+                          td.text-truncate ABC Inc. UI/UX
+                          td.text-truncate
+                            span.avatar.avatar-xs
+                              img(src='app-assets/images/portrait/small/avatar-s-8.png', alt='avatar')
+                            span Susan S.
+                          td.text-truncate
+                            span.tag.tag-warning Medium
+                          td.valign-middle
+                            .progress.m-0(style='height: 7px;')
+                              .progress-bar.bg-warning(role='progressbar', style='width: 45%', aria-valuenow='45', aria-valuemin='0', aria-valuemax='100')
+                        tr
+                          td.text-truncate Product UI
+                          td.text-truncate
+                            span.avatar.avatar-xs
+                              img(src='app-assets/images/portrait/small/avatar-s-9.png', alt='avatar')
+                            span Walter K.
+                          td.text-truncate
+                            span.tag.tag-danger Critical
+                          td.valign-middle
+                            .progress.m-0(style='height: 7px;')
+                              .progress-bar.bg-danger(role='progressbar', style='width: 15%', aria-valuenow='15', aria-valuemin='0', aria-valuemax='100')
+            .col-xl-4.col-lg-12
+              .card
+                .card-content.bg-success
+                  .card-body.sales-growth-chart
+                    #completed-project.height-250
+                .card-footer
+                  .chart-title
+                    span.text-muted Total completed project and earning.
+                  ul.list-inline.text-center.clearfix.mt-2.mb-0
+                    li.border-right-grey.border-right-lighten-2.pr-1
+                      span.text-muted Completed Projects
+                      h3.block 250
+                    li.pl-2
+                      span.text-muted Total Earnings
+                      h3.block 64.54 M
+          .row.match-height
+            .col-xl-4.col-lg-12
+              .card
+                .card-header.no-border-bottom
+                  h4.card-title Invoices Stats
+                  a.heading-elements-toggle
+                    i.ft-more-horizontal.font-medium-3
+                  .heading-elements
+                    ul.list-inline.mb-0
+                      li
+                        a(data-action='reload')
+                          i.ft-rotate-cw
+                      li
+                        a(data-action='expand')
+                          i.ft-maximize
+                .card-content
+                  .card-body
+                    ul.list-inline.text-right.pr-2.mb-0
+                      li
+                        h6
+                          i.ft-circle.grey.lighten-1
+                          |  Paid
+                      li
+                        h6
+                          i.ft-circle.danger
+                          |  Unpaid
+                  #project-invoices.height-250
+            .col-xl-8.col-lg-12
+              .card
+                .card-header
+                  h4.card-title Recent Invoices
+                  a.heading-elements-toggle
+                    i.ft-more-horizontal.font-medium-3
+                  .heading-elements
+                    ul.list-inline.mb-0
+                      li
+                        a(data-action='reload')
+                          i.ft-rotate-cw
+                      li
+                        a(data-action='expand')
+                          i.ft-maximize
+                .card-content
+                  .card-body
+                    p
+                      | Total paid invoices 240, unpaid 150. 
+                      span.float-right
+                        a(href='project-summary.html', target='_blank')
+                          | Invoice Summary 
+                          i.ft-arrow-right
+                  .table-responsive
+                    table.table.table-hover.mb-0
+                      thead
+                        tr
+                          th Invoice#
+                          th Customer Name
+                          th Status
+                          th Due
+                          th Amount
+                      tbody
+                        tr
+                          td.text-truncate
+                            a(href='#') INV-001001
+                          td.text-truncate Elizabeth W.
+                          td.text-truncate
+                            span.tag.tag-default.tag-success Paid
+                          td.text-truncate 10/05/2016
+                          td.text-truncate $ 1200.00
+                        tr
+                          td.text-truncate
+                            a(href='#') INV-001012
+                          td.text-truncate Andrew D.
+                          td.text-truncate
+                            span.tag.tag-default.tag-success Paid
+                          td.text-truncate 20/07/2016
+                          td.text-truncate $ 152.00
+                        tr
+                          td.text-truncate
+                            a(href='#') INV-001401
+                          td.text-truncate Megan S.
+                          td.text-truncate
+                            span.tag.tag-default.tag-success Paid
+                          td.text-truncate 16/11/2016
+                          td.text-truncate $ 1450.00
+                        tr
+                          td.text-truncate
+                            a(href='#') INV-01112
+                          td.text-truncate Doris R.
+                          td.text-truncate
+                            span.tag.tag-default.tag-warning Overdue
+                          td.text-truncate 11/12/2016
+                          td.text-truncate $ 5685.00
+                        tr
+                          td.text-truncate
+                            a(href='#') INV-008101
+                          td.text-truncate Walter R.
+                          td.text-truncate
+                            span.tag.tag-default.tag-warning Overdue
+                          td.text-truncate 18/05/2016
+                          td.text-truncate $ 685.00
+          .row
+            .col-xl-4.col-lg-12
+              .card.profile-card-with-cover.border-grey.border-lighten-2
+                .card-img-top.img-fluid.bg-cover.height-200(style="background: url('/stylesheets/app-assets/images/carousel/16.jpg');")
+                .card-profile-image
+                  img.rounded-circle.img-border(src='/stylesheets/app-assets/images/portrait/small/avatar-s-9.png', alt='Card image')
+                .profile-card-with-cover-content.text-center
+                  .card-body
+                    h4.card-title Philip Garrett
+                    p.text-muted.m-0 Employee of the month
+                  .card-body
+                    a.btn.btn-social-icon.mr-1.mb-1.btn-outline-facebook(href='#')
+                      span.ft-facebook
+                    a.btn.btn-social-icon.mr-1.mb-1.btn-outline-twitter(href='#')
+                      span.ft-twitter
+                    a.btn.btn-social-icon.mr-1.mb-1.btn-outline-linkedin(href='#')
+                      span.ft-github.font-medium-4
+            .col-xl-4.col-lg-6.col-md-12
+              .card.bg-twitter.white.height-200
+                .card-content
+                  .card-body
+                    .text-center.my-1
+                      i.ft-twitter.font-large-3
+                    .tweet-slider
+                      ul.text-center
+                        li
+                          | Congratulations to Rob Jones in accounting for winning our 
+                          span.yellow #NFL
+                          |  football pool!
+                        li
+                          | Contests are a great thing to partner on. Partnerships immediately 
+                          span.yellow #DOUBLE
+                          |  the reach.
+                        li
+                          | Puns, humor, and quotes are great content on 
+                          span.yellow #Twitter
+                          | . Find some related to your business.
+                        li
+                          | Are there 
+                          span.yellow #common-sense
+                          |  facts related to your business? Combine them with a great photo.
+              .card.bg-warning.text-center.height-200
+                .card-content
+                  .card-body
+                    img.mb-1(src='/stylesheets/app-assets/images/elements/04.png', alt='element 05', height='110')
+                    h4.card-title.m-0.white Storage Device
+                    p.card-text.white Best Design
+            .col-xl-4.col-lg-6.col-md-12
+              .card.card-inverse.card-success.text-center.height-200
+                .card-content
+                  .card-body
+                    img.mb-1(src='/stylesheets/app-assets/images/elements/06.png', alt='element 05', height='110')
+                    h4.card-title.m-0 Ceramic Bottle
+                    p.card-text Best UI
+              .card.bg-facebook.white.height-200
+                .card-content
+                  .card-body
+                    .text-center.my-1
+                      i.ft-facebook.font-large-3
+                    .fb-post-slider(dir='rtl')
+                      ul.text-center
+                        li Congratulations to Rob Jones in accounting for winning our #NFL football pool!
+                        li
+                          | Contests are a great thing to partner on. Partnerships immediately #DOUBLE the reach.
+                        li
+                          | Puns, humor, and quotes are great content on #Twitter. Find some related to your business.
+                        li
+                          | Are there #common-sense facts related to your business? Combine them with a great photo.
+          // / Emp of month & social cards
+          // CLNDR Wrapper
+          #clndr.clearfix
+            script#clndr-template(type='text/template').
+              <div class="clndr-controls">
+              <div class="clndr-previous-button">&lt;</div>
+              <div class="clndr-next-button">&gt;</div>
+              <div class="current-month">
+              <%= month %>
+              <%= year %>
+              </div>
+              </div>
+              <div class="clndr-grid">
+              <div class="days-of-the-week clearfix">
+              <% _.each(daysOfTheWeek, function(day) { %>
+              <div class="header-day">
+              <%= day %>
+              </div>
+              <% }); %>
+              </div>
+              <div class="days">
+              <% _.each(days, function(day) { %>
+              <div class="<%= day.classes %>" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div>
+              <% }); %>
+              </div>
+              </div>
+              <div class="event-listing">
+              <div class="event-listing-title">Project meetings</div>
+              <% _.each(eventsThisMonth, function(event) { %>
+              <div class="event-item font-small-3">
+              <div class="event-item-day font-small-2">
+              <%= event.date %>
+              </div>
+              <div class="event-item-name text-bold-600">
+              <%= event.title %>
+              </div>
+              <div class="event-item-location">
+              <%= event.location %>
+              </div>
+              </div>
+              <% }); %>
+              </div>
+        
+          include includes/footer.jade
+          

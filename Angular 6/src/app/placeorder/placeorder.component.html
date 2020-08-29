@@ -1,0 +1,65 @@
+<section class="main" *ngIf="orderDetails">
+    <div class="add">
+            <p><b>{{orderDetails.first_name}} {{orderDetails.last_name}}</b></p>
+            <p>{{orderDetails.address}}</p>
+            <p>Phone no: {{orderDetails.phone_no}}</p>
+        <button class="btn-add">Change Address</button>
+    </div>
+    <div class="time">
+        <div class="input-group">
+            Enter collection time
+            <input type="text" class="form-control" aria-label="Text input with dropdown button" width="80px">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">8.00am</a>
+                <a class="dropdown-item" href="#">9.00am</a>
+                <a class="dropdown-item" href="#">10.00am</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="invoice">
+             <b><b>Lab Name:</b>{{orderDetails.labratory_name}}</b>
+             <div class="invoice-in">
+                 <p>Invoice no - {{orderDetails.item_id}} <br>{{orderDetails.date_time}} <br><b>Repoting Time Within:</b>{{orderDetails.report_within}} Days</p>
+                
+             </div>
+             <p style="margin: 0;"><b>Name:</b>{{orderDetails.lab_owner_name}}</p>
+             <p style="margin: 0;"><b>Address:</b>{{orderDetails.labratory_address}}</p>
+             <p style="margin: 0;"><b>Email:</b>{{orderDetails.email_id}}</p>
+             <p style="margin: 0;"><b>Phone:</b>{{orderDetails.lab_phone}}</p>
+             <div class="invoice-in">
+                <p>Invoice no - {{orderDetails.item_id}} </p>
+                
+                </div>
+                <div class="invoice-in">
+                    <p><b>Test  Name</b></p>
+                    <p><b>Price (₹)</b></p>
+                </div>
+                <div class="invoice-in">
+                    <p style="margin: 0;">{{orderDetails.name}} <br>{{orderDetails.description}}</p>
+                    
+                </div>
+                
+                <div class="invoice-in">
+                    <p style="margin: 0;"><b>Total Price</b></p>
+                    <p style="margin: 0;">{{orderDetails.anount}}</p>
+                </div>
+                <div class="invoice-in">
+                    <p><b>Collection charge</b></p>
+                    <p>100</p>
+                </div>
+                <div class="invoice-in">
+                    <p><b>Total  Amount (₹)</b></p>
+                    <p> {{orderDetails.anount + 100}}</p>
+                </div>
+            
+        </div>
+    <div style="text-align: center;margin-top: 20px;">
+        <a routerLink="/continue"><button class="btn-con">Continue</button></a>
+    </div>
+    <div style="text-align: center;margin-top: 5px;">
+        <a (click)="deleteBookOrder(orderDetails.item_id)"><button class="btn-con">cancel</button></a>
+    </div>
+    </section>

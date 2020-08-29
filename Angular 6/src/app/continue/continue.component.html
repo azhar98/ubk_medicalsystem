@@ -1,0 +1,17 @@
+<section class="main">
+    <div class="p1">
+        <p class="p-h">Pay Through</p>
+        <form>
+            <input type="radio"  name="pay" (click)="onItemChange(codname)" checked> Cash on delivery
+            <p></p>
+            <input type="radio" name="pay" value="debit" (click)="onItemChange(card)">By debit or Credit card
+            <p></p>
+            <input type="radio" name="pay" value="walet" (click)="onItemChange(wallet)">By wallet
+        </form>
+        <div style="text-align: center;margin-top: 20px;">
+            <!-- <a routerLink="/pay"> -->
+                <button  (click)="onSubmit()" type="submit" class="btn-pay">Pay</button>
+            <!-- </a> -->
+        </div>
+    </div>
+</section>

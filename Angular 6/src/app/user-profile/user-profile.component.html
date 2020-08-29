@@ -1,0 +1,178 @@
+<!-- <table *ngIf="userDetails" class="table-fill">
+  <thead>
+      <tr>
+          <th colspan="2" class="text-center">User Profile</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>First Name</td>
+          <td>{{userDetails.fullName.split(' ')[0]}}</td>
+      </tr>
+      <tr>
+          <td>Last Name</td>
+          <td>{{userDetails.fullName.split(' ')[1]}}</td>
+      </tr>
+      <tr>
+          <td>Email</td>
+          <td>{{userDetails.email}}</td>
+      </tr>
+      <tr>
+          <td colspan="2" class="text-center">
+              <input type="button" (click)="onLogout()" value="Logout" />
+          </td>
+      </tr>
+  </tbody>
+</table> -->
+
+
+<section class="main">
+    <section class="resp">
+        <div class="resp-1">
+            <button class="btn-1"> Get your test Report</button>
+        </div>
+        <div class="resp-2">
+        <input type="search" placeholder="search for tests" class="s-box">
+        <a routerLink="/cartpage" *ngIf="cart_num"><img src="assets/images/supermarket.png"><b>{{cart_num}}</b></a>
+        <a routerLink="/cartpage" *ngIf="!cart_num"><img src="assets/images/supermarket.png"></a>
+        </div>
+    </section>
+    <section class="banner">
+         <img src="assets/images/img-2.png" class="img-fluid">  
+    </section>
+    <section class="resp-nxt">
+        <div class="det">
+            <h2>Get lab tests and other diagnostic test facilites</h2>
+        </div>
+        <div class="det-mid">
+            <button class="btn-2"> See all test packages</button>
+        </div>
+        <div class="det">
+            <h2>Diagnostic tests for</h2>
+            <!-- <ul class="test">
+                <li><img src="images/t-1.png"> Covid-19
+               
+                </li>
+            </ul> -->
+            <ul class="list-group"  >
+                <li class="list-group-item d-flex justify-content-between align-items-center"   *ngFor ="let category_details of userDetails">
+                        <span class="badge"><img src="http://ubkinfotech.com/demo/pathology/images/{{category_details.icon}}" width="50" height="40">
+                            {{category_details.cat_name}}</span>
+                          <span class="badge badge-pill"><a [routerLink]="['/category/',category_details.cat_id]"><img src="assets/images/next.png"></a></span>
+                </li>
+                <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge"><img src="assets/images/t2.png" opacity="0.6">
+                    Liver profile</span>
+                   <span class="badge badge-pill"><img src="assets/images/next.png"></span>
+                 </li>
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge"><img src="assets/images/t3.png">
+                        Gynocology & pregnancy</span>
+                   <span class="badge badge-pill"><img src="assets/images/next.png"></span>
+                 </li>
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge"><img src="assets/images/t4.png">
+                        Kidney</span>
+                   <span class="badge badge-pill"><img src="assets/images/next.png"></span>
+                 </li>
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge"><img src="assets/images/t5.png">
+                        Diabetes</span>
+                   <span class="badge badge-pill"><img src="assets/images/next.png"></span>
+                 </li>
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="badge"><img src="assets/images/t6.png">
+                        Orthopedic</span>
+                   <span class="badge badge-pill"><img src="assets/images/next.png"></span>
+                 </li>   -->
+              </ul>
+              <h2>Frequently done diagnostic tests</h2>
+        </div>
+        <div class="wapper">
+            <div class="item" *ngFor="let p of package">
+                <a>
+                    <h3>{{p.name}}</h3>
+                    <p>Blood and scrambled it to make </p>
+                    
+                    
+                    <div class="cart"><h3>₹ {{p.amount}}</h3> <span><button (click)="addToCart(p)"><img src="assets/images/cart-2.png"></button></span></div>
+                </a>
+            </div>
+            <!-- <div class="item">
+                <a>
+                    <h3>Blood  Glucose test</h3>
+                    <p>Blood and scrambled it to make </p>
+                    <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a>
+                    <h3>Blood  Glucose test</h3>
+                    <p>Blood and scrambled it to make </p>
+                    <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                </a>
+            </div>
+            <div class="item">
+                <a>
+                    <h3>Blood  Glucose test</h3>
+                    <p>Blood and scrambled it to make </p>
+                    <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                </a>
+            </div> -->
+        </div>
+         <!-- <div class="wapper">
+                <div class="item">
+                    <a>
+                        <h3>Blood  Glucose test</h3>
+                        <p>Blood and scrambled it to make </p>
+                        <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a>
+                        <h3>Blood  Glucose test</h3>
+                        <p>Blood and scrambled it to make </p>
+                        <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a>
+                        <h3>Blood  Glucose test</h3>
+                        <p>Blood and scrambled it to make </p>
+                        <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a>
+                        <h3>Blood  Glucose test</h3>
+                        <p>Blood and scrambled it to make </p>
+                        <div class="cart"><h3>₹ 150</h3> <span><img src="assets/images/cart-2.png"></span></div>
+                    </a>
+                </div>
+            </div> -->
+            <div class="det">
+                <h2>Our associated Laboretories</h2>
+                <div class="row" *ngFor="let lab of labotary">
+                   <div class="col-6">
+                        <div class="lab-name">
+                            <img src="assets/images/lab-1.png">
+                            <h3>{{lab.labratory_name}}</h3>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="lab-name">
+                            <img src="assets/images/lab-1.png">
+                            <h3>Contact Details:</h3>
+                            <strong>{{lab.lab_owner_name}}, {{lab.lab_username}}, {{lab.labratory_address}}, {{lab.lab_phone}}, {{lab.lab_email}}</strong>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="more"><a class="more">More</a></div>
+            </div>
+            
+            <div class="call">
+                <button class="btn-1"> <img src="assets/images/phone.png">Call now to book a Lab Test</button>
+            </div>
+    </section>
+</section>

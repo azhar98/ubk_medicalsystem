@@ -1,0 +1,120 @@
+<section class="main">
+    <div class="main-in">
+        <h4><b>{{this.categoryname}}</b></h4>
+        <div class="row">
+            <div class="col-6" *ngFor="let product of productdetails" style="margin-bottom: 10px;">
+                <div class="test-box" style="height:400px;">
+                 <a class=""> 
+                <img src="assets/images/test-image.png" class="img-fluid">
+                <div class="test-box-in">
+                <h6>{{product.name}} </h6>
+                <p>{{product.description}}</p>
+                <p class="test-box-a">2 tests - fasting</p>
+                <div class="test-box-b">
+                    <p style="color: #3b3a3a;"><b>₹{{product.product_amount}}</b></p>
+                    <form #myForm ="ngForm" (ngSubmit)="onSubmit(myForm)">
+                            <input type="hidden" name="product_name" id="product_name"  [(ngModel)]="product.name">
+                            <input type="hidden" name="product_id" id="product_id"   [(ngModel)]="product.pro_id">
+                            <input type="hidden" name="product_qty" id="product_qty"  value="1">
+                            <input  type="hidden" name="product_amount"  id="product_amount"  [(ngModel)]="product.product_amount">
+                           
+                            <p class="test-box-b-right"><button  type="submit">Book</button></p>
+                    </form>
+                    
+                </div>
+                </div>
+                </a>
+                </div>
+                </div>
+                <!-- <div class="col-6">
+                    <div class="test-box">
+                     <a routerLink="/book"> 
+                    <img src="assets/images/test-image2.png" class="img-fluid">
+                    <div class="test-box-in">
+                    <h6>Insulin test (fasting) </h6>
+                    <p>Blood and serum test</p>
+                    <p class="test-box-a">2 tests - fasting</p>
+                    <div class="test-box-b">
+                        <p style="color: #3b3a3a;"><b>₹335</b></p>
+                        <p class="test-box-b-right"><b>Book</b></p>
+                    </div>
+                    </div>
+                    </a>
+                    </div>
+                
+                    </div> -->
+            </div>
+            <!-- <div class="seperator"></div> -->
+            <!-- <div class="row">
+                <div class="col-6">
+                    <div class="test-box">
+                     <a routerLink="/book" class=""> 
+                    <img src="assets/images/test-image.png" class="img-fluid">
+                    <div class="test-box-in">
+                    <h6>Diabetes screening  </h6>
+                    <p>Blood and serum test</p>
+                    <p class="test-box-a">2 tests - fasting</p>
+                    <div class="test-box-b">
+                        <p style="color: #3b3a3a;"><b>₹335</b></p>
+                        <p class="test-box-b-right"><b>Book</b></p>
+                    </div>
+                    </div>
+                    </a>
+                    </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="test-box">
+                         <a routerLink="/book"> 
+                        <img src="assets/images/test-image2.png" class="img-fluid">
+                        <div class="test-box-in">
+                        <h6>Insulin test (fasting) </h6>
+                        <p>Blood and serum test</p>
+                        <p class="test-box-a">2 tests - fasting</p>
+                        <div class="test-box-b">
+                            <p style="color: #3b3a3a;"><b>₹335</b></p>
+                            <p class="test-box-b-right"><b>Book</b></p>
+                        </div>
+                        </div>
+                        </a>
+                        </div>
+                    
+                        </div>
+                </div> -->
+                <!-- <div class="seperator"></div> -->
+                <!-- <div class="row">
+                    <div class="col-6">
+                        <div class="test-box">
+                         <a routerLink="/book" class=""> 
+                        <img src="assets/images/test-image.png" class="img-fluid">
+                        <div class="test-box-in">
+                        <h6>Diabetes screening  </h6>
+                        <p>Blood and serum test</p>
+                        <p class="test-box-a">2 tests - fasting</p>
+                        <div class="test-box-b">
+                            <p style="color: #3b3a3a;"><b>₹335</b></p>
+                            <p class="test-box-b-right"><b>Book</b></p>
+                        </div>
+                        </div>
+                        </a>
+                        </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="test-box">
+                             <a routerLink="/book"> 
+                            <img src="assets/images/test-image2.png" class="img-fluid">
+                            <div class="test-box-in">
+                            <h6>Insulin test (fasting) </h6>
+                            <p>Blood and serum test</p>
+                            <p class="test-box-a">2 tests - fasting</p>
+                            <div class="test-box-b">
+                                <p style="color: #3b3a3a;"><b>₹335</b></p>
+                                <p class="test-box-b-right"><b>Book</b></p>
+                            </div>
+                            </div>
+                            </a>
+                            </div>
+                        
+                            </div>
+                    </div> -->
+        </div>
+</section>

@@ -1,0 +1,69 @@
+doctype html
+html.loading(lang='en', data-textdirection='ltr')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title
+      | Login Page
+    link(rel='apple-touch-icon', href='app-assets/images/ico/apple-icon-120.png')
+    link(rel='shortcut icon', type='image/x-icon', href='app-assets/images/ico/favicon.ico')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700', rel='stylesheet')
+    // BEGIN VENDOR CSS
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/css/vendors.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/vendors/css/forms/icheck/icheck.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/vendors/css/forms/icheck/custom.css')
+    // END VENDOR CSS
+    // BEGIN ROBUST CSS
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/css/app.css')
+    // END ROBUST CSS
+    // BEGIN Page Level CSS
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/css/core/colors/palette-gradient.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/app-assets/css/pages/login-register.css')
+    // END Page Level CSS
+    // BEGIN Custom CSS
+    link(rel='stylesheet', type='text/css', href='/stylesheets/assets/css/style.css')
+    // END Custom CSS
+  body.vertical-layout.vertical-overlay-menu.1-column.menu-expanded.blank-page.blank-page(data-open='click', data-menu='vertical-overlay-menu', data-col='1-column')
+    .app-content.content
+      .content-wrapper
+        .content-header.row
+        .content-body
+          section.flexbox-container
+            .col-12.d-flex.align-items-center.justify-content-center
+              .col-md-4.col-10.box-shadow-2.p-0
+                .card.border-grey.border-lighten-3.m-0
+                  .card-header.border-0
+                    .card-title.text-center
+                      .p-1
+                        img(src='https://ubkinfotech.com/images/logo.png', alt='branding logo')
+                    h6.card-subtitle.line-on-side.text-muted.text-center.font-small-3.pt-2
+                      span Login
+                  .card-content
+                    .card-body
+                      form.form-horizontal.form-simple(action='/users/loginnow', method='POST' )
+                        fieldset.form-group.position-relative.has-icon-left.mb-0
+                          input#user_name.form-control.form-control-lg.input-lg(type='text', placeholder='Your Username', required='' name='user_name')
+                          .form-control-position
+                            i.ft-user
+                        fieldset.form-group.position-relative.has-icon-left
+                          input#user-password.form-control.form-control-lg.input-lg(type='password', placeholder='Enter Password', required='' name='user_password')
+                          .form-control-position
+                            i.fa.fa-key
+                        .form-group.row
+                          .col-md-6.col-12.text-center.text-md-left
+                            fieldset
+                              input#remember-me.chk-remember(type='checkbox')
+                              label(for='remember-me')  Remember Me
+                          .col-md-6.col-12.text-center.text-md-right
+                            a.card-link(href='recover-password.html') Forgot Password?
+                        button.btn.btn-info.btn-lg.btn-block(type='submit')
+                          i.ft-unlock
+                          |  Login
+                  
+    script(src='/stylesheets/app-assets/vendors/js/vendors.min.js')
+    script(src='/stylesheets/app-assets/vendors/js/forms/icheck/icheck.min.js')
+    script(src='/stylesheets/app-assets/vendors/js/forms/validation/jqBootstrapValidation.js')
+    script(src='/stylesheets/app-assets/js/core/app-menu.js')
+    script(src='/stylesheets/app-assets/js/core/app.js')
+    script(src='/stylesheets/app-assets/js/scripts/forms/form-login-register.js')
